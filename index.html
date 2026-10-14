@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Join Allways for early access to a more connected fitness, wellness and nutrition ecosystem." />
+    <meta name="waitlist-endpoint" content="" />
+    <title>Allways — Wellbeing, wherever life takes you</title>
+    <link rel="icon" href="favicon.svg?v=20261014-3" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20261014-3" />
+    <script src="app.js?v=20261014-3" defer></script>
+  </head>
+  <body>
+    <div class="page-progress" aria-hidden="true"><span id="pageProgress"></span></div>
+    <div class="pointer-glow" id="pointerGlow" aria-hidden="true"></div>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Allways home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="wordmark">A<span class="double-l">LL</span>WAYS</span>
+      </a>
+      <div class="header-actions">
+        <button class="language" type="button" id="languageToggle" aria-label="Cambiar idioma">ES</button>
+        <a class="header-cta" href="#waitlist" data-copy="navCta">Get early access</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell reveal">
+        <div class="eyebrow"><span></span><span data-copy="eyebrow">Wellbeing is opening up</span></div>
+        <h1 data-profile-copy="headline">Wellbeing.<br /><em>All ways.</em></h1>
+        <p class="hero-copy" data-profile-copy="heroCopy">Connect with fitness, wellness and nutrition experiences wherever life takes you.</p>
+        <div class="hero-orbit" aria-hidden="true">
+          <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
+          <b class="orbit-core">ALLWAYS</b>
+          <i class="orbit-label orbit-label-one">MOVE</i>
+          <i class="orbit-label orbit-label-two">RECOVER</i>
+          <i class="orbit-label orbit-label-three">NOURISH</i>
+        </div>
+        <div class="audience-picker" role="group" aria-label="Choose your profile">
+          <button type="button" class="audience-option is-active" data-audience="traveler" aria-pressed="true">
+            <span class="option-icon" aria-hidden="true">↗</span>
+            <span><strong data-copy="travelerLabel">I live wellness</strong><small data-copy="travelerHint">Member / traveler</small></span>
+          </button>
+          <button type="button" class="audience-option" data-audience="fitness_center" aria-pressed="false">
+            <span class="option-icon" aria-hidden="true">＋</span>
+            <span><strong data-copy="centerLabel">I offer wellness</strong><small data-copy="centerHint">Business / provider</small></span>
+          </button>
+        </div>
+        <a class="primary-cta" href="#waitlist"><span data-copy="heroCta">Get early access</span><span aria-hidden="true">→</span></a>
+        <p class="incentive" data-profile-copy="incentive">Early members get first access and complimentary entries at launch.</p>
+      </section>
+
+      <div class="kinetic-strip" aria-hidden="true">
+        <div class="kinetic-track" id="kineticTrack"></div>
+      </div>
+
+      <section class="value-section section-shell reveal" aria-labelledby="valueTitle" id="benefits">
+        <div class="section-number">01</div>
+        <div class="value-heading">
+          <p class="kicker" data-profile-copy="valueKicker">Built around your life</p>
+          <h2 id="valueTitle" data-profile-copy="valueTitle">One wellbeing life.<br />Every way to live it.</h2>
+          <p class="value-lede" data-profile-copy="valueLede">Training, recovery and nourishment should move with you—not make you start over.</p>
+        </div>
+        <div class="benefit-experience">
+          <aside class="benefit-rail" aria-label="Benefit navigation">
+            <p data-copy="exploreLabel">Explore the value</p>
+            <div class="benefit-nav" id="benefitNav"></div>
+            <div class="benefit-meter"><span id="benefitMeter"></span></div>
+            <small id="benefitCounter">01 / 04</small>
+          </aside>
+          <div class="benefit-grid" id="benefitGrid"></div>
+        </div>
+      </section>
+
+      <section class="statement section-shell reveal">
+        <blockquote data-profile-copy="statement">“There is more than one way to feel your best.”</blockquote>
+        <div class="route" aria-hidden="true"><span data-profile-copy="routeStart">YOUR LIFE</span><i><b id="routeMarker">✦</b></i><span data-profile-copy="routeEnd">ALL WAYS</span></div>
+      </section>
+
+      <section class="waitlist-section reveal" id="waitlist">
+        <div class="section-shell waitlist-grid">
+          <div class="waitlist-copy">
+            <div class="section-number">02</div>
+            <p class="kicker" data-copy="formKicker">Be first in line</p>
+            <h2 data-profile-copy="formTitle">Ready when<br />you are.</h2>
+            <p data-profile-copy="formCopy">Tell us a little about you. We’ll let you know as soon as access opens in your market.</p>
+          </div>
+
+          <form id="waitlistForm" novalidate>
+            <input type="hidden" name="audience" id="audienceInput" value="traveler" />
+            <input type="hidden" name="language" id="languageInput" value="en" />
+            <div class="form-row">
+              <label><span data-copy="nameLabel">Full name</span><input name="name" autocomplete="name" required data-placeholder="namePlaceholder" placeholder="Your name" /></label>
+              <label><span data-copy="emailLabel">Email</span><input name="email" type="email" autocomplete="email" required placeholder="you@example.com" /></label>
+            </div>
+            <div class="form-row">
+              <label><span data-copy="cityLabel">City</span><input name="city" autocomplete="address-level2" required data-placeholder="cityPlaceholder" placeholder="Your city" /></label>
+              <label><span data-copy="countryLabel">Country</span><input name="country" autocomplete="country-name" required data-placeholder="countryPlaceholder" placeholder="Your country" /></label>
+            </div>
+            <div id="travelerFields">
+              <label><span data-copy="travelLabel">Average travel days per year</span><input name="travel_days" type="number" min="0" max="365" inputmode="numeric" required placeholder="e.g. 30" /></label>
+            </div>
+            <div id="centerFields" class="is-hidden">
+              <div class="form-row">
+                <label><span data-copy="gymLabel">Business or brand</span><input name="gym_name" data-placeholder="gymPlaceholder" placeholder="Business name" /></label>
+                <label><span data-copy="roleLabel">Your role</span><input name="role" autocomplete="organization-title" data-placeholder="rolePlaceholder" placeholder="Owner, manager..." /></label>
+              </div>
+            </div>
+            <label class="consent"><input type="checkbox" name="consent" required /><span data-copy="consent">I agree to receive launch updates. No spam.</span></label>
+            <button class="submit-button" type="submit"><span data-copy="submit">Join the waitlist</span><span aria-hidden="true">→</span></button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="wordmark">A<span class="double-l">LL</span>WAYS</span></div>
+      <p data-copy="footer">Wellbeing, all ways. Coming soon.</p>
+      <p>© 2026 Allways</p>
+    </footer>
+  </body>
+</html>
