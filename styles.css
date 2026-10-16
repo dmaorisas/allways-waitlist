@@ -44,8 +44,13 @@ main#top { scroll-margin-top: 92px; }
 .language:hover { background: var(--midnight); color: var(--cloud); border-color: var(--midnight); }
 .header-cta { color: var(--midnight); border-bottom: 2px solid var(--lime); padding: 8px 0 6px; font-size: 13px; font-weight: 700; }
 
-.hero { position: relative; min-height: 860px; padding: 92px 0 118px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; isolation: isolate; border-radius: 0 0 110px 110px; transition: background-color .65s ease, border-radius .65s ease; }
-body[data-audience="fitness_center"] .hero { background: rgba(193,216,223,.34); border-radius: 0 0 190px 42px; }
+.hero { position: relative; min-height: 860px; padding: 92px 0 118px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; isolation: isolate; overflow: hidden; border-radius: 0 0 110px 110px; transition: background-color .75s ease, border-radius .75s ease, color .55s ease; }
+.hero::before, .hero::after { content: ""; position: absolute; z-index: 0; pointer-events: none; opacity: 0; transform: scale(.72) rotate(-18deg); transition: opacity .7s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+.hero::before { width: 48%; height: 70%; left: -14%; top: 13%; border: 1px solid rgba(193,216,223,.34); border-radius: 36px 140px 36px 140px; }
+.hero::after { width: 42%; height: 62%; right: -12%; bottom: -8%; background: rgba(67,124,135,.2); border: 1px solid rgba(193,216,223,.16); border-radius: 140px 36px 140px 36px; }
+body[data-audience="fitness_center"] .hero { background: var(--midnight); border-radius: 0 0 190px 42px; }
+body[data-audience="fitness_center"] .hero::before,
+body[data-audience="fitness_center"] .hero::after { opacity: 1; transform: scale(1) rotate(12deg); }
 .hero > *:not(.hero-orbit) { position: relative; z-index: 2; }
 .eyebrow, .kicker { color: var(--teal); text-transform: uppercase; letter-spacing: .18em; font-size: 11px; font-weight: 900; }
 .eyebrow { display: flex; align-items: center; gap: 10px; }
@@ -55,6 +60,11 @@ h1 { color: var(--midnight); font-size: clamp(58px, 9.3vw, 124px); line-height: 
 h1 em { color: var(--profile-secondary); font-style: normal; transition: color .5s ease; }
 body[data-audience="fitness_center"] h1 em { color: var(--profile-primary); }
 .hero-copy { color: var(--text-muted); max-width: 650px; font-size: clamp(17px, 2vw, 21px); line-height: 1.58; margin: 34px auto; animation: rise-in .9s .12s cubic-bezier(.2,.8,.2,1) both; }
+body[data-audience="fitness_center"] .hero h1 { color: var(--cloud); }
+body[data-audience="fitness_center"] .hero h1 em { color: var(--ice); }
+body[data-audience="fitness_center"] .hero-copy,
+body[data-audience="fitness_center"] .incentive { color: var(--ice); }
+body[data-audience="fitness_center"] .hero .eyebrow { color: var(--ice); }
 
 .hero-orbit { position: absolute; width: min(690px, 76vw); aspect-ratio: 1; top: 26px; left: 50%; translate: -50% 0; z-index: 0; opacity: .72; transition: rotate .8s cubic-bezier(.2,.8,.2,1), scale .8s cubic-bezier(.2,.8,.2,1), opacity .5s ease; }
 .orbit { position: absolute; inset: 6%; border: 1px solid rgba(67,124,135,.26); border-radius: 49% 51% 58% 42% / 45% 47% 53% 55%; animation: orbit-spin 26s linear infinite; transition: border-radius .8s ease, inset .8s ease, border-color .5s ease; }
@@ -66,13 +76,17 @@ body[data-audience="fitness_center"] h1 em { color: var(--profile-primary); }
 .orbit-label { position: absolute; color: rgba(16,45,64,.46); font: 900 9px/1 var(--display); letter-spacing: .18em; font-style: normal; }
 .orbit-label-one { left: 4%; top: 46%; }.orbit-label-two { top: 5%; right: 28%; }.orbit-label-three { bottom: 12%; right: 6%; }
 body[data-audience="fitness_center"] .hero-orbit { rotate: 45deg; scale: .9; opacity: .82; }
-body[data-audience="fitness_center"] .orbit { border-radius: 24%; border-color: rgba(67,124,135,.42); animation-duration: 34s; }
-body[data-audience="fitness_center"] .orbit-two { inset: 18%; border-radius: 38% 18% 38% 18%; border-style: solid; border-color: rgba(16,45,64,.18); animation-direction: normal; animation-duration: 22s; }
+body[data-audience="fitness_center"] .orbit { border-radius: 24%; border-color: rgba(193,216,223,.42); animation-duration: 34s; }
+body[data-audience="fitness_center"] .orbit-two { inset: 18%; border-radius: 38% 18% 38% 18%; border-style: solid; border-color: rgba(67,124,135,.7); animation-direction: normal; animation-duration: 22s; }
+body[data-audience="fitness_center"] .orbit::before,
+body[data-audience="fitness_center"] .orbit::after { border-color: var(--midnight); }
 body[data-audience="fitness_center"] .orbit-core,
 body[data-audience="fitness_center"] .orbit-label { rotate: -45deg; }
-body[data-audience="fitness_center"] .orbit-core { color: rgba(16,45,64,.075); letter-spacing: -.04em; }
+body[data-audience="fitness_center"] .orbit-core { color: rgba(244,246,244,.075); letter-spacing: -.04em; }
+body[data-audience="fitness_center"] .orbit-label { color: rgba(193,216,223,.7); }
 
 .audience-picker { width: min(650px, 100%); padding: 6px; display: grid; grid-template-columns: 1fr 1fr; background: var(--white); border: 1px solid var(--line-dark); border-radius: 999px; gap: 6px; }
+body[data-audience="fitness_center"] .audience-picker { border-color: rgba(193,216,223,.56); }
 .audience-option { min-height: 76px; display: flex; align-items: center; text-align: left; gap: 14px; padding: 14px 20px; color: var(--text-muted); background: transparent; border: 1px solid transparent; border-radius: 999px; cursor: pointer; transition: color .3s ease, background .3s ease, transform .3s ease; }
 .audience-option:hover { transform: translateY(-2px); color: var(--midnight); }
 .audience-option.is-active { color: var(--cloud); background: var(--profile-primary); border-color: var(--profile-primary); }
@@ -177,6 +191,8 @@ input:not([type="checkbox"]):focus { border-color: var(--teal); background: var(
   .header-cta { display: none; }
   .header-actions { gap: 12px; }
   .hero { min-height: 800px; padding: 66px 0 88px; }
+  .hero h1 { font-size: clamp(48px, 14vw, 64px); }
+  body[data-audience="fitness_center"] .hero h1 { font-size: clamp(42px, 12vw, 54px); }
   .hero-orbit { width: 590px; top: 34px; opacity: .55; }
   .hero-copy { font-size: 16px; }
   .audience-picker, .form-row { grid-template-columns: 1fr; }
