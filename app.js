@@ -13,12 +13,14 @@ const copy = {
     footer: "Wellbeing, all ways. Coming soon.", kinetic: ["TRAIN", "RECOVER", "NOURISH", "LIVE"],
     profiles: {
       traveler: {
+        orbitCore: "ALLWAYS", orbitLabelOne: "MOVE", orbitLabelTwo: "RECOVER", orbitLabelThree: "NOURISH",
         headline: "Wellbeing.<br /><em>All ways.</em>", heroCopy: "Connect with fitness, wellness and nutrition experiences wherever work, travel or life takes you.",
         incentive: "Early members get first access and launch benefits as the ecosystem comes to life.", valueKicker: "Built around your whole life", valueTitle: "One wellbeing life.<br />Every way to live it.",
         valueLede: "Training, recovery and nourishment should move with you—not make you start over.", statement: "“There is more than one way to feel your best.”",
         routeStart: "YOUR LIFE", routeEnd: "ALL WAYS", formTitle: "Your place<br />starts here.", formCopy: "Tell us a little about you. We’ll let you know as soon as Allways opens access in your market."
       },
       fitness_center: {
+        orbitCore: "CONNECT", orbitLabelOne: "REACH", orbitLabelTwo: "PARTNER", orbitLabelThree: "GROW",
         headline: "Your expertise.<br /><em>More ways to grow.</em>", heroCopy: "Bring your gym, studio, recovery space, wellness service or nutrition brand into one connected ecosystem.",
         incentive: "Early providers get priority consideration as the Allways ecosystem takes shape.", valueKicker: "Demand meets possibility", valueTitle: "New people.<br />Real connections.",
         valueLede: "Meet relevant customers who may never have discovered your business on their own.", statement: "“Wellbeing grows when the right people find the right experience.”",
@@ -49,12 +51,14 @@ const copy = {
     footer: "Bienestar, de todas las formas. Próximamente.", kinetic: ["ENTRENA", "RECUPERA", "NUTRE", "VIVE"],
     profiles: {
       traveler: {
+        orbitCore: "ALLWAYS", orbitLabelOne: "MUÉVETE", orbitLabelTwo: "RECUPERA", orbitLabelThree: "NUTRE",
         headline: "Bienestar.<br /><em>De todas las formas.</em>", heroCopy: "Conecta con experiencias de fitness, wellness y nutrición donde te lleven el trabajo, los viajes o la vida.",
         incentive: "Los primeros miembros obtendrán acceso anticipado y beneficios de lanzamiento mientras el ecosistema cobra vida.", valueKicker: "Diseñado para toda tu vida", valueTitle: "Una vida de bienestar.<br />Todas las formas de vivirla.",
         valueLede: "Entrenar, recuperar y nutrirte debería acompañarte, no obligarte a empezar de cero.", statement: "“Hay más de una forma de sentirte en tu mejor versión.”",
         routeStart: "TU VIDA", routeEnd: "TODAS LAS FORMAS", formTitle: "Tu lugar<br />empieza aquí.", formCopy: "Cuéntanos un poco sobre ti. Te avisaremos tan pronto Allways abra el acceso en tu mercado."
       },
       fitness_center: {
+        orbitCore: "CONECTA", orbitLabelOne: "ALCANZA", orbitLabelTwo: "COLABORA", orbitLabelThree: "CRECE",
         headline: "Tu experiencia.<br /><em>Más formas de crecer.</em>", heroCopy: "Integra tu gimnasio, estudio, espacio de recuperación, servicio wellness o marca de nutrición en un ecosistema conectado.",
         incentive: "Los primeros proveedores tendrán consideración prioritaria mientras construimos el ecosistema Allways.", valueKicker: "La demanda encuentra posibilidades", valueTitle: "Nuevas personas.<br />Conexiones reales.",
         valueLede: "Conecta con clientes relevantes que quizá nunca habrían descubierto tu negocio por su cuenta.", statement: "“El bienestar crece cuando las personas correctas encuentran la experiencia correcta.”",
