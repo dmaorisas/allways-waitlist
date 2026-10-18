@@ -269,7 +269,8 @@ form.addEventListener("submit", async (event) => {
     status.classList.add("error");
     return;
   }
-  const endpoint = document.querySelector('meta[name="waitlist-endpoint"]')?.content.trim();
+  const endpointName = audience === "traveler" ? "waitlist-member-endpoint" : "waitlist-provider-endpoint";
+  const endpoint = document.querySelector(`meta[name="${endpointName}"]`)?.content.trim();
   if (window.location.protocol === "file:") {
     status.textContent = language === "es"
       ? "La vista está lista. Para guardar el registro, ejecuta python3 app.py y abre http://127.0.0.1:8000."
@@ -286,18 +287,34 @@ form.addEventListener("submit", async (event) => {
   }
   submitButton.disabled = true;
   submitButton.querySelector("span").textContent = copy[language].submitting;
-  const payload = Object.fromEntries(new FormData(form).entries());
-  delete payload.consent;
+  const formData = new FormData(form);
+  const payload = new URLSearchParams({
+    "fields[email]": String(formData.get("email") || ""),
+    "fields[name]": String(formData.get("name") || ""),
+    "fields[city]": String(formData.get("city") || ""),
+    "fields[country]": String(formData.get("country") || ""),
+    "fields[audience]": audience === "traveler" ? "member" : "provider",
+    "fields[language]": language,
+    "fields[waitlist_source]": "allways.dmaori.com",
+    "fields[travel_days]": audience === "traveler" ? String(formData.get("travel_days") || "") : "",
+    "fields[business_name]": audience === "fitness_center" ? String(formData.get("gym_name") || "") : "",
+    "fields[role]": audience === "fitness_center" ? String(formData.get("role") || "") : "",
+    "ml-submit": "1",
+    anticsrf: "true"
+  });
   try {
-    const response = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-    const result = await response.json();
-    if (!response.ok) throw Object.assign(new Error(result.error), { code: result.code });
+    await fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body: payload.toString()
+    });
     form.reset();
     setAudience(audience);
-    status.textContent = result.email_sent ? copy[language].successEmail : copy[language].success;
+    status.textContent = copy[language].successEmail;
     status.classList.add("success");
   } catch (error) {
-    status.textContent = error.code === "duplicate" ? copy[language].duplicate : copy[language].error;
+    status.textContent = copy[language].error;
     status.classList.add("error");
   } finally {
     submitButton.disabled = false;
