@@ -303,12 +303,13 @@ form.addEventListener("submit", async (event) => {
     anticsrf: "true"
   });
   try {
-    await fetch(endpoint, {
+    const response = await fetch(endpoint, {
       method: "POST",
-      mode: "no-cors",
       headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
       body: payload.toString()
     });
+    const result = await response.json();
+    if (!response.ok || !result.success) throw new Error("MailerLite rejected the submission");
     form.reset();
     setAudience(audience);
     status.textContent = copy[language].successEmail;
