@@ -28,16 +28,16 @@ const copy = {
       }
     },
     travelerBenefits: [
-      ["↗", "Keep your momentum", "Stay connected to your wellbeing when travel or a changing schedule disrupts the usual routine.", "Continuity"],
-      ["◎", "Choose what you need", "Explore ways to train, recover and nourish yourself according to the moment you are in.", "Choice"],
-      ["✦", "Connect the whole picture", "Bring movement, recovery, wellness and nutrition into one simpler journey.", "Connection"],
-      ["∞", "Make wellbeing yours", "Build a wellbeing life that adapts to your world instead of asking your world to adapt.", "Freedom"]
+      ["momentum", "Keep your momentum", "Stay connected to your wellbeing when travel or a changing schedule disrupts the usual routine.", "Continuity"],
+      ["choice", "Choose what you need", "Explore ways to train, recover and nourish yourself according to the moment you are in.", "Choice"],
+      ["connection", "Connect the whole picture", "Bring movement, recovery, wellness and nutrition into one simpler journey.", "Connection"],
+      ["freedom", "Make wellbeing yours", "Build a wellbeing life that adapts to your world instead of asking your world to adapt.", "Freedom"]
     ],
     centerBenefits: [
-      ["↗", "Reach new customers", "Welcome relevant people who would not normally discover your business, service or brand.", "Discovery"],
-      ["◎", "Turn discovery into value", "Create incremental revenue from qualified visits, bookings or purchases within the ecosystem.", "Revenue"],
-      ["✦", "Join a broader journey", "Connect your expertise with complementary fitness, wellness and nutrition experiences.", "Ecosystem"],
-      ["∞", "Build lasting demand", "Create a new discovery channel while staying focused on the experience you deliver best.", "Momentum"]
+      ["reach", "Reach new customers", "Welcome relevant people who would not normally discover your business, service or brand.", "Discovery"],
+      ["growth", "Turn discovery into value", "Create incremental revenue from qualified visits, bookings or purchases within the ecosystem.", "Revenue"],
+      ["network", "Join a broader journey", "Connect your expertise with complementary fitness, wellness and nutrition experiences.", "Ecosystem"],
+      ["demand", "Build lasting demand", "Create a new discovery channel while staying focused on the experience you deliver best.", "Momentum"]
     ]
   },
   es: {
@@ -66,16 +66,16 @@ const copy = {
       }
     },
     travelerBenefits: [
-      ["↗", "Mantén el impulso", "Sigue conectado con tu bienestar cuando un viaje o cambio de agenda interrumpe la rutina habitual.", "Continuidad"],
-      ["◎", "Elige lo que necesitas", "Explora formas de entrenar, recuperar y nutrirte según el momento en el que estás.", "Elección"],
-      ["✦", "Conecta todo el panorama", "Integra movimiento, recuperación, wellness y nutrición en un recorrido más simple.", "Conexión"],
-      ["∞", "Haz tuyo el bienestar", "Construye una vida de bienestar que se adapta a tu mundo, sin pedirle a tu mundo que se adapte.", "Libertad"]
+      ["momentum", "Mantén el impulso", "Sigue conectado con tu bienestar cuando un viaje o cambio de agenda interrumpe la rutina habitual.", "Continuidad"],
+      ["choice", "Elige lo que necesitas", "Explora formas de entrenar, recuperar y nutrirte según el momento en el que estás.", "Elección"],
+      ["connection", "Conecta todo el panorama", "Integra movimiento, recuperación, wellness y nutrición en un recorrido más simple.", "Conexión"],
+      ["freedom", "Haz tuyo el bienestar", "Construye una vida de bienestar que se adapta a tu mundo, sin pedirle a tu mundo que se adapte.", "Libertad"]
     ],
     centerBenefits: [
-      ["↗", "Llega a nuevos clientes", "Recibe personas relevantes que normalmente no descubrirían tu negocio, servicio o marca.", "Descubrimiento"],
-      ["◎", "Convierte descubrimiento en valor", "Genera ingresos incrementales mediante visitas, reservas o compras calificadas dentro del ecosistema.", "Ingresos"],
-      ["✦", "Únete a un recorrido más amplio", "Conecta tu especialidad con experiencias complementarias de fitness, wellness y nutrición.", "Ecosistema"],
-      ["∞", "Construye demanda duradera", "Crea un nuevo canal de descubrimiento mientras mantienes el foco en la experiencia que mejor sabes entregar.", "Impulso"]
+      ["reach", "Llega a nuevos clientes", "Recibe personas relevantes que normalmente no descubrirían tu negocio, servicio o marca.", "Descubrimiento"],
+      ["growth", "Convierte descubrimiento en valor", "Genera ingresos incrementales mediante visitas, reservas o compras calificadas dentro del ecosistema.", "Ingresos"],
+      ["network", "Únete a un recorrido más amplio", "Conecta tu especialidad con experiencias complementarias de fitness, wellness y nutrición.", "Ecosistema"],
+      ["demand", "Construye demanda duradera", "Crea un nuevo canal de descubrimiento mientras mantienes el foco en la experiencia que mejor sabes entregar.", "Impulso"]
     ]
   }
 };
@@ -88,6 +88,17 @@ const status = document.querySelector("#formStatus");
 const submitButton = form.querySelector("button[type='submit']");
 let benefitNavLockUntil = 0;
 let benefitCleanup = () => {};
+
+const lineIcons = {
+  momentum: '<svg viewBox="0 0 24 24"><path d="M4 17 10 11l4 4 6-7"/><path d="M15 8h5v5"/></svg>',
+  choice: '<svg viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="11" cy="18" r="2"/></svg>',
+  connection: '<svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.3 10.9 7.4-3.8M8.3 13.1l7.4 3.8"/></svg>',
+  freedom: '<svg viewBox="0 0 24 24"><path d="M4 12c2.2-4 5.1-4 8 0s5.8 4 8 0c-2.2-4-5.1-4-8 0s-5.8 4-8 0Z"/></svg>',
+  reach: '<svg viewBox="0 0 24 24"><circle cx="10" cy="14" r="6"/><circle cx="10" cy="14" r="2"/><path d="m14.5 9.5 5-5M16 4.5h3.5V8"/></svg>',
+  growth: '<svg viewBox="0 0 24 24"><path d="M5 19v-4M10 19v-7M15 19V9M20 19V5"/><path d="m5 10 5-3 5 1 5-4"/></svg>',
+  network: '<svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="m10.8 7.2-4.6 8.6M13.2 7.2l4.6 8.6M7.5 18h9"/></svg>',
+  demand: '<svg viewBox="0 0 24 24"><path d="M6 17a7 7 0 1 1 12 0"/><path d="M12 5v3M5 12h3M16 12h3M8 8l2 2M16 8l-2 2"/><path d="M9 20h6"/></svg>'
+};
 
 function setActiveBenefit(index) {
   const cards = [...document.querySelectorAll(".benefit")];
@@ -201,7 +212,7 @@ function renderBenefits() {
   document.querySelector("#benefitGrid").innerHTML = `<div class="benefit-track" id="benefitTrack">${benefits.map(([icon, title, body, tag], index) => `
       <article class="benefit" data-index="${index}" data-number="${String(index + 1).padStart(2, "0")}" style="--i:${index}">
         <div class="benefit-topline"><span class="benefit-index">0${index + 1} / 0${benefits.length}</span><span class="benefit-tag">${tag}</span></div>
-        <div class="benefit-icon" aria-hidden="true">${icon}</div><h3>${title}</h3><p>${body}</p>
+        <div class="benefit-icon" aria-hidden="true">${lineIcons[icon]}</div><h3>${title}</h3><p>${body}</p>
       </article>
     `).join("")}</div>`;
   document.querySelector("#benefitNav").innerHTML = benefits.map(([, title], index) => `

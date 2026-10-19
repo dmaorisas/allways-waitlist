@@ -91,6 +91,7 @@ body[data-audience="fitness_center"] .audience-picker { border-color: rgba(193,2
 .audience-option:hover { transform: translateY(-2px); color: var(--midnight); }
 .audience-option.is-active { color: var(--cloud); background: var(--profile-primary); border-color: var(--profile-primary); }
 .option-icon { display: grid; place-items: center; width: 38px; height: 38px; flex: 0 0 auto; border: 1px solid currentColor; border-radius: 50%; color: var(--lime); transition: rotate .4s ease; }
+.option-icon svg, .arrow-icon svg, .benefit-icon svg, .route b svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .audience-option:hover .option-icon { rotate: 45deg; }
 .audience-option strong, .audience-option small { display: block; }
 .audience-option strong { font-size: 14px; }
@@ -98,13 +99,14 @@ body[data-audience="fitness_center"] .audience-picker { border-color: rgba(193,2
 .primary-cta, .submit-button { display: inline-flex; justify-content: space-between; align-items: center; background: var(--lime); color: var(--midnight); border: 0; font-weight: 900; cursor: pointer; transition: transform .25s ease, background .25s ease; }
 .primary-cta { width: min(310px, 100%); padding: 19px 22px; margin-top: 27px; border-radius: 999px; }
 .primary-cta:hover, .submit-button:hover { transform: translateY(-3px); background: #d0f887; }
-.primary-cta span:last-child, .submit-button span:last-child { font-size: 22px; }
+.arrow-icon { display: grid; place-items: center; width: 28px; height: 28px; }
+.arrow-icon svg { width: 24px; height: 24px; }
 .incentive { color: var(--text-muted); font-size: 12px; margin: 16px 0 0; }
 
 .kinetic-strip { overflow: hidden; border-block: 1px solid rgba(244,246,244,.22); background: var(--profile-primary); rotate: -1deg; scale: 1.025; margin: 12px 0 70px; transition: background-color .55s ease; }
 .kinetic-track { width: max-content; display: flex; gap: 34px; align-items: center; padding: 20px 0; color: var(--lime); font: 900 clamp(22px, 3vw, 42px)/1 var(--display); text-transform: uppercase; letter-spacing: -.02em; animation: marquee 20s linear infinite; }
 .kinetic-track span { display: inline-flex; gap: 34px; align-items: center; }
-.kinetic-track span::after { content: "●"; color: var(--ice); font-size: .32em; }
+.kinetic-track span::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ice); }
 
 .value-section { padding: 110px 0 140px; display: grid; grid-template-columns: 80px 1fr; gap: 24px; }
 .section-number { color: var(--teal); font: 900 12px/1 var(--display); letter-spacing: .12em; padding-top: 8px; }
@@ -136,6 +138,7 @@ body[data-audience="fitness_center"] .benefit:nth-child(even) { background: var(
 .benefit-index { color: var(--lime); font: 900 11px/1 var(--display); letter-spacing: .16em; }
 .benefit-tag { padding: 8px 11px; border: 1px solid rgba(244,246,244,.35); border-radius: 99px; color: var(--cloud); font-size: 9px; text-transform: uppercase; letter-spacing: .14em; }
 .benefit-icon { width: 64px; height: 64px; margin-top: 72px; border: 1px solid var(--lime); border-radius: 50%; display: grid; place-items: center; color: var(--lime); font-size: 26px; transition: transform .4s ease; }
+.benefit-icon svg { width: 30px; height: 30px; stroke-width: 1.45; }
 .benefit.is-active .benefit-icon { transform: rotate(-8deg) scale(1.08); }
 .benefit h3 { max-width: 650px; margin: 32px 0 15px; font-size: clamp(32px, 5vw, 62px); line-height: 1.04; letter-spacing: -.04em; font-weight: 900; }
 .benefit p { max-width: 600px; color: var(--ice); font-size: 17px; line-height: 1.65; margin: 0; }
@@ -145,7 +148,8 @@ body[data-audience="fitness_center"] .benefit:nth-child(even) { background: var(
 .route { display: flex; align-items: center; gap: 18px; margin: 70px auto 0; color: var(--teal); letter-spacing: .15em; font-size: 10px; max-width: 900px; width: 100%; }
 .route i { position: relative; flex: 1; height: 2px; background: var(--ice); }
 .route i::before { content: ""; position: absolute; left: 0; top: 0; width: var(--route-progress, 0%); height: 2px; background: var(--lime); transition: width .15s linear; }
-.route b { position: absolute; left: var(--route-progress, 0%); top: 0; translate: -50% -50%; color: var(--midnight); font-size: 20px; }
+.route b { position: absolute; left: var(--route-progress, 0%); top: 0; translate: -50% -50%; width: 28px; height: 28px; display: grid; place-items: center; color: var(--midnight); background: var(--cloud); border: 1px solid var(--ice); border-radius: 50%; }
+.route b svg { width: 16px; height: 16px; stroke-width: 1.6; }
 
 .waitlist-section { position: relative; overflow: hidden; background: var(--ice); color: var(--midnight); padding: 110px 0; border-radius: 96px 96px 0 0; }
 .waitlist-section::before { content: "ALL WAYS"; position: absolute; right: -2vw; top: -3vw; color: rgba(16,45,64,.045); font: 900 clamp(100px, 18vw, 260px)/1 var(--display); letter-spacing: -.06em; white-space: nowrap; pointer-events: none; }
